@@ -2,6 +2,7 @@ package JavaStore;
 
 import java.util.Scanner;
 import java.util.Date;
+
 /**
  * Created by DelMonroe on 5/15/17.
  */
@@ -13,7 +14,7 @@ public class myStore {
 
     }
 
-    public static void showMenu () {
+    public static void showMenu() {
 
         Scanner input = new Scanner(System.in);
 
@@ -23,18 +24,13 @@ public class myStore {
         System.out.println("3) Exit\n");
 
         int selection = input.nextInt();
-        System.out.println("Do you want to enter your name (y/n)?");
-        String enterName = input.next();
 
         if (selection == 1) {
-            String Name = Sale(enterName);
-        }
 
-        else if(selection == 2) {
+        } else if (selection == 2) {
 
 
-        }
-        else if (selection == 3) {
+        } else if (selection == 3) {
 
         }
 
@@ -59,19 +55,18 @@ public class myStore {
         return itemQuantities;
     }
 
-    public static void getdateTime () {
+    public static void getdateTime() {
         Date date = new Date();
         System.out.println(date);
 
     }
 
-    public static void getName () {
+    public static void getName() {
         Scanner input = new Scanner(System.in);
         String fname;
 
-
         do {
-            System.out.println("Please enter first name and last name: ");
+            System.out.println("Please enter your name: ");
             fname = input.nextLine();
 
         } while (fname.isEmpty());
