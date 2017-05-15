@@ -9,7 +9,7 @@ import java.util.Date;
 public class myStore {
     public static void main(String[] args) {
 
-
+        getName();
         showMenu();
 
     }
@@ -38,28 +38,29 @@ public class myStore {
     }
 
     public static String Sale() {
-        String items = " ";
-
+        Scanner input = new Scanner(System.in);
+        String items = input.nextLine();
         System.out.println("What Item do you want?");
-
         return items;
     }
 
     public static float Price() {
-        float prices = 0;
+        Scanner input = new Scanner(System.in);
+        float prices = input.nextInt();
         System.out.println("Please Enter the Price");
         return prices;
     }
 
     public static int getQuantity() {
-        int itemQuantities = 0;
+        Scanner input = new Scanner(System.in);
+        int itemQuantities = input.nextInt();
+        System.out.println("How many would you like today?");
         return itemQuantities;
     }
 
     public static void getdateTime() {
         Date date = new Date();
         System.out.println(date);
-
     }
 
     public static String getName() {
