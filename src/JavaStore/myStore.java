@@ -22,28 +22,38 @@ public class myStore {
     }
 
     public static String Sale(String item) {
-        String items, name;
+        String items = " ";
         System.out.println("Please Enter your name");
+
+
         System.out.println("What Item do you want?");
 
         return items;
     }
 
     public static float Price(Float price) {
-        float prices;
+        float prices = 0;
         System.out.println("Please Enter the Price");
-        return price;
+        return prices;
     }
 
     public static int getQuantity(Integer itemQuantity) {
-        int itemQuantities;
-        return itemQuantity;
+        int itemQuantities = 0;
+        return itemQuantities;
     }
 
     public static void getdateTime () {
         Date date = new Date();
         System.out.println(date);
 
+    }
+
+    public static String name (String name) {
+        do {
+            System.out.println("Please Enter your name");
+
+        } while (!name.equalsIgnoreCase(" "));
+        return name;
     }
 
     public static void exitMenu() {
