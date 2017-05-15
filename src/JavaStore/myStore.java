@@ -9,7 +9,7 @@ import java.util.Date;
 public class myStore {
     public static void main(String[] args) {
 
-
+        getName();
         showMenu();
 
     }
