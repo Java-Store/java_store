@@ -10,7 +10,6 @@ public class myStore {
     public static void main(String[] args) {
 
 
-
         showMenu();
 
     }
@@ -27,7 +26,6 @@ public class myStore {
         int selection = input.nextInt();
 
         if (selection == 1) {
-            String sales = Sale();
 
         } else if (selection == 2) {
 
@@ -38,10 +36,7 @@ public class myStore {
 
     }
 
-    // queries -> methods returning a value
-    // commands ()void -> methods that do not return a value but do something instead
-
-    public static String Sale() {
+    public static String Sale(String item) {
         String items = " ";
 
         System.out.println("What Item do you want?");
@@ -49,13 +44,13 @@ public class myStore {
         return items;
     }
 
-    public static float Price() {
+    public static float Price(Float price) {
         float prices = 0;
         System.out.println("Please Enter the Price");
         return prices;
     }
 
-    public static int getQuantity() {
+    public static int getQuantity(Integer itemQuantity) {
         int itemQuantities = 0;
         return itemQuantities;
     }
