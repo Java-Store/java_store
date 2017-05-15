@@ -7,6 +7,8 @@ import java.util.Date;
  */
 public class myStore {
     public static void main(String[] args) {
+
+        getName();
         showMenu();
 
     }
@@ -48,12 +50,18 @@ public class myStore {
 
     }
 
-    public static String getName (String name) {
-        do {
-            System.out.println("Please Enter your name");
+    public static void getName () {
+        Scanner input = new Scanner(System.in);
+        String fname, lname;
 
-        } while (!name.equalsIgnoreCase(" "));
-        return name;
+
+        do {
+            System.out.println("Please enter first name and last name: ");
+            fname = input.nextLine();
+            lname = input.nextLine();
+
+        } while (fname.isEmpty() && lname.isEmpty());
+        System.out.println("First Name: " + fname + "\nLast Name: " + lname);
     }
 
     public static void exitMenu() {
