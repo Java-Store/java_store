@@ -26,7 +26,7 @@ public class myStore {
         int selection = input.nextInt();
 
         if (selection == 1) {
-            Sale();
+            String sales = Sale();
 
         } else if (selection == 2) {
 
@@ -62,7 +62,7 @@ public class myStore {
 
     }
 
-    public static void getName() {
+    public static String getName() {
         Scanner input = new Scanner(System.in);
         String fname;
 
@@ -71,7 +71,7 @@ public class myStore {
             fname = input.nextLine();
 
         } while (fname.isEmpty());
-        System.out.println("Hello: " + fname);
+        return fname;
     }
 
     public static void exitMenu() {
