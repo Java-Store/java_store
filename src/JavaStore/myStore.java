@@ -25,9 +25,6 @@ public class myStore {
 
     public static String Sale(String item) {
         String items = " ";
-        System.out.println("Please Enter your name");
-
-
         System.out.println("What Item do you want?");
 
         return items;
@@ -52,16 +49,15 @@ public class myStore {
 
     public static void getName () {
         Scanner input = new Scanner(System.in);
-        String fname, lname;
+        String fname;
 
 
         do {
-            System.out.println("Please enter first name and last name: ");
+            System.out.println("Please enter your name: ");
             fname = input.nextLine();
-            lname = input.nextLine();
 
-        } while (fname.isEmpty() && lname.isEmpty());
-        System.out.println("First Name: " + fname + "\nLast Name: " + lname);
+        } while (fname.isEmpty());
+        System.out.println("Name:" + fname);
     }
 
     public static void exitMenu() {
