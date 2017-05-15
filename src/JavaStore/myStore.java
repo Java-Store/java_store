@@ -37,6 +37,7 @@ public class myStore {
     }
 
     public static String Sale(String item) {
+        Scanner input = new Scanner(System.in);
         String items = " ";
 
         System.out.println("What Item do you want?");
@@ -45,13 +46,16 @@ public class myStore {
     }
 
     public static float Price(Float price) {
+        Scanner input = new Scanner(System.in);
         float prices = 0;
         System.out.println("Please Enter the Price");
         return prices;
     }
 
     public static int getQuantity(Integer itemQuantity) {
+        Scanner input = new Scanner(System.in);
         int itemQuantities = 0;
+        System.out.println("How many did you wish to purchase today?");
         return itemQuantities;
     }
 
