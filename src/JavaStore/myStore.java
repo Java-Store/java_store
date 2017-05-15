@@ -8,7 +8,7 @@ import java.util.Date;
 public class myStore {
     public static void main(String[] args) {
 
-        getName();
+
         showMenu();
 
     }
@@ -23,9 +23,11 @@ public class myStore {
         System.out.println("3) Exit\n");
 
         int selection = input.nextInt();
+        System.out.println("Do you want to enter your name (y/n)?");
+        String enterName = input.next();
 
         if (selection == 1) {
-
+            String Name = Sale(enterName);
         }
 
         else if(selection == 2) {
@@ -40,8 +42,6 @@ public class myStore {
 
     public static String Sale(String item) {
         String items = " ";
-        System.out.println("Please Enter your name");
-
 
         System.out.println("What Item do you want?");
 
@@ -67,16 +67,15 @@ public class myStore {
 
     public static void getName () {
         Scanner input = new Scanner(System.in);
-        String fname, lname;
+        String fname;
 
 
         do {
             System.out.println("Please enter first name and last name: ");
             fname = input.nextLine();
-            lname = input.nextLine();
 
-        } while (fname.isEmpty() && lname.isEmpty());
-        System.out.println("First Name: " + fname + "\nLast Name: " + lname);
+        } while (fname.isEmpty());
+        System.out.println("Hello: " + fname);
     }
 
     public static void exitMenu() {
