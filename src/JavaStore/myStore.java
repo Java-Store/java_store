@@ -15,16 +15,34 @@ public class myStore {
 
     public static void showMenu () {
 
-        Scanner scan = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.println("======= Store Menu ======");
         System.out.println("1) Sale\n");
         System.out.println("2) Print Receipt\n");
         System.out.println("3) Exit\n");
+
+        int selection = input.nextInt();
+
+        if (selection == 1) {
+
+        }
+
+        else if(selection == 2) {
+
+
+        }
+        else if (selection == 3) {
+
+        }
+
     }
 
     public static String Sale(String item) {
         String items = " ";
+        System.out.println("Please Enter your name");
+
+
         System.out.println("What Item do you want?");
 
         return items;
@@ -49,15 +67,16 @@ public class myStore {
 
     public static void getName () {
         Scanner input = new Scanner(System.in);
-        String fname;
+        String fname, lname;
 
 
         do {
-            System.out.println("Please enter your name: ");
+            System.out.println("Please enter first name and last name: ");
             fname = input.nextLine();
+            lname = input.nextLine();
 
-        } while (fname.isEmpty());
-        System.out.println("Name:" + fname);
+        } while (fname.isEmpty() && lname.isEmpty());
+        System.out.println("First Name: " + fname + "\nLast Name: " + lname);
     }
 
     public static void exitMenu() {
