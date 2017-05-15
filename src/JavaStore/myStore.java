@@ -26,6 +26,7 @@ public class myStore {
         int selection = input.nextInt();
 
         if (selection == 1) {
+            Sale();
 
         } else if (selection == 2) {
 
@@ -36,7 +37,7 @@ public class myStore {
 
     }
 
-    public static String Sale(String item) {
+    public static String Sale() {
         String items = " ";
 
         System.out.println("What Item do you want?");
@@ -44,13 +45,13 @@ public class myStore {
         return items;
     }
 
-    public static float Price(Float price) {
+    public static float Price() {
         float prices = 0;
         System.out.println("Please Enter the Price");
         return prices;
     }
 
-    public static int getQuantity(Integer itemQuantity) {
+    public static int getQuantity() {
         int itemQuantities = 0;
         return itemQuantities;
     }
