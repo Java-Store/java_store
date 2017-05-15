@@ -48,7 +48,7 @@ public class myStore {
 
     }
 
-    public static String name (String name) {
+    public static String getName (String name) {
         do {
             System.out.println("Please Enter your name");
 
