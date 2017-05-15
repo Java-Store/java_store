@@ -9,12 +9,17 @@ import java.util.Date;
 public class myStore {
     public static void main(String[] args) {
 
-        getName();
+
         showMenu();
 
     }
 
     public static void showMenu() {
+        String name = "";
+        String sales = "";
+        String answer = "";
+        float price = 0;
+        int quant = 0;
 
         Scanner input = new Scanner(System.in);
 
@@ -23,15 +28,27 @@ public class myStore {
         System.out.println("2) Print Receipt\n");
         System.out.println("3) Exit\n");
 
+
         int selection = input.nextInt();
 
         if (selection == 1) {
-            String sales = Sale();
+            do {
+                name = getName();
+                sales = Sale();
+                price = Price();
+                quant = getQuantity();
+                System.out.println("Do you want to enter another item (y/n)?");
+                answer = input.next();
+                showMenu();
+
+            } while (answer.equalsIgnoreCase("y"));
 
         } else if (selection == 2) {
+            getReceipt(name, sales, price, quant);
 
 
         } else if (selection == 3) {
+            exitMenu();
 
         }
 
@@ -39,28 +56,38 @@ public class myStore {
 
     public static String Sale() {
         Scanner input = new Scanner(System.in);
-        String items = input.nextLine();
+        String items = "";
+
         System.out.println("What Item do you want?");
+        items += input.nextLine();
         return items;
     }
 
     public static float Price() {
+        float prices = 0;
         Scanner input = new Scanner(System.in);
-        float prices = input.nextInt();
         System.out.println("Please Enter the Price");
+        prices += input.nextFloat();
+
         return prices;
     }
 
     public static int getQuantity() {
+        int itemQuantities = 0;
         Scanner input = new Scanner(System.in);
-        int itemQuantities = input.nextInt();
         System.out.println("How many would you like today?");
+        itemQuantities += input.nextInt();
         return itemQuantities;
     }
 
     public static void getdateTime() {
         Date date = new Date();
         System.out.println(date);
+    }
+
+    public static String getReceipt (String sale, String quantitiy, String price, String name, String dateTime) {
+        System.out.printf("Name: "%s, "Date: " %s, "Sale: " %s, "Quantity: " %s, "Price: $" %s, name, dateTime, sale, quantitiy, price);
+
     }
 
     public static String getName() {
@@ -76,6 +103,7 @@ public class myStore {
     }
 
     public static void exitMenu() {
+        System.exit(0);
 
     }
 }
