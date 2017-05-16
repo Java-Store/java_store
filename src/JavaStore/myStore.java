@@ -86,7 +86,7 @@ public class myStore {
         Scanner input = new Scanner(System.in);
         System.out.println("Please Enter the Price");
         price = input.nextFloat();
-        float prices = price * quantity;
+        float prices =  price * quantity;
 
         return prices;
     }
@@ -96,7 +96,8 @@ public class myStore {
         int itemQuantity = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("How many would you like today?");
-        itemQuantity = input.nextInt();
+        itemQuantity += input.nextInt();
+        input.nextLine();
 
         return itemQuantity;
     }
@@ -108,7 +109,8 @@ public class myStore {
     }
 
     public static void printReceipt (String name, String sale, int quantity, float price) {
-        System.out.printf("Name: %s \nSale: %s(%d), \nPrice: $%.2f", name, sale, quantity, price);
+        System.out.printf("Name        Item        Quantity        Price");
+        System.out.printf(" %s          %s          (%d)          $%.2f", name, sale, quantity, price);
 
     }
 
