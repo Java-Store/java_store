@@ -1,109 +1,150 @@
 package JavaStore;
 
+import jdk.nashorn.internal.codegen.CompilerConstants;
+
 import java.util.Scanner;
-import java.util.Date;
+import java.util.*;
+import java.text.*;
+
 
 /**
  * Created by DelMonroe on 5/15/17.
  */
 public class myStore {
     public static void main(String[] args) {
+        onlyMenu();
 
-
-        showMenu();
 
     }
 
-    public static void showMenu() {
-        String name = "";
-        String sales = "";
-        String answer = "";
-        float price = 0;
-        int quant = 0;
-
-        Scanner input = new Scanner(System.in);
-
+    public static void onlyMenu() {
         System.out.println("======= Store Menu ======");
         System.out.println("1) Sale\n");
         System.out.println("2) Print Receipt\n");
         System.out.println("3) Exit\n");
 
-
+        Scanner input = new Scanner(System.in);
         int selection = input.nextInt();
+        showMenu(selection);
+    }
 
-        if (selection == 1) {
-            do {
-                name = getName();
-                sales = Sale();
-                price = Price();
-                quant = getQuantity();
+
+    public static int showMenu(Integer option) {
+        String sales = "";
+        String answer;
+        float price = 0;
+        int quant = 0;
+
+        Scanner input = new Scanner(System.in);
+
+        /*System.out.println("======= Store Menu ======");
+        System.out.println("1) Sale\n");
+        System.out.println("2) Print Receipt\n");
+        System.out.println("3) Exit\n");*/
+
+        do {
+            if (option == 1) {
+
+                sales += Sale() + ", ";
+                quant += getQuantity();
+                price += Price(quant);
+
+
                 System.out.println("Do you want to enter another item (y/n)?");
                 answer = input.next();
-                showMenu();
+                if (answer.equalsIgnoreCase("y")) {
+                    continue;
+                }
+                onlyMenu();
 
-            } while (answer.equalsIgnoreCase("y"));
+            } else if (option == 2) {
+                printReceipt(getName(), displayData(sales), displayData(quant), displayData(price));
+                System.out.println("\n");
+                getdateTime();
+                onlyMenu();
 
-        } else if (selection == 2) {
-            getReceipt(name, sales, price, quant);
 
-
-        } else if (selection == 3) {
-            exitMenu();
-
-        }
-
+            } else if (option == 3) {
+                exitMenu();
+            }
+        } while (option != 3 );
+        return option;
     }
+
 
     public static String Sale() {
         Scanner input = new Scanner(System.in);
-        String items = "";
+        String item = "";
 
         System.out.println("What Item do you want?");
-        items += input.nextLine();
-        return items;
+        item += input.nextLine();
+        return item;
     }
 
-    public static float Price() {
-        float prices = 0;
+
+    public static float Price(Integer quantity) {
+        float price = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("Please Enter the Price");
-        prices += input.nextFloat();
+        price += input.nextFloat();
+        float prices = price * quantity;
 
         return prices;
     }
 
     public static int getQuantity() {
-        int itemQuantities = 0;
+        int itemQuantity = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("How many would you like today?");
-        itemQuantities += input.nextInt();
-        return itemQuantities;
+        itemQuantity += input.nextInt();
+//        showMenu();
+        return itemQuantity;
     }
 
     public static void getdateTime() {
         Date date = new Date();
-        System.out.println(date);
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy.MM.dd' - 'hh:mm:ss a zz");
+        System.out.println(ft.format(date));
     }
 
-    public static String getReceipt (String sale, String quantitiy, String price, String name, String dateTime) {
-        System.out.printf("Name: "%s, "Date: " %s, "Sale: " %s, "Quantity: " %s, "Price: $" %s, name, dateTime, sale, quantitiy, price);
+    public static void printReceipt (String name, String sale, int quantity, float price) {
+        System.out.printf("Name: %s \nSale: %s\nQuantity: %d\nPrice: $%.2f", name, sale, quantity, price);
 
     }
+
 
     public static String getName() {
         Scanner input = new Scanner(System.in);
-        String fname;
+        String flname;
 
         do {
             System.out.println("Please enter your name: ");
-            fname = input.nextLine();
+            flname = input.nextLine();
 
-        } while (fname.isEmpty());
-        return fname;
+        } while (flname.isEmpty());
+
+        return flname;
     }
 
     public static void exitMenu() {
         System.exit(0);
 
     }
+
+
+    /* ====== Overloaded Functions ====== */
+
+    public static String displayData(String sales) {
+        return sales;
+    }
+
+    public static Integer displayData(Integer quantity) {
+        return quantity;
+    }
+
+    public static Float displayData(Float price) {
+        return price;
+    }
+
+
 }
