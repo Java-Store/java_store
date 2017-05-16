@@ -14,11 +14,11 @@ public class myStore {
     public static void main(String[] args) {
         String sales = "";
         float price = 0;
-        int quant = 0;
+        int quantity = 0;
 
         onlyMenu();
         int option = getOption();
-        showMenu(option, sales, price, quant);
+        showMenu(option, sales, price, quantity);
 
 
     }
@@ -33,16 +33,17 @@ public class myStore {
     }
 
 
-    public static void showMenu(Integer option, String sales, Float price, Integer quant ) {
+    public static void showMenu(Integer option, String sales, Float price, Integer quantity ) {
         Scanner input = new Scanner(System.in);
 
 
         do {
             if (option == 1) {
+
                 sales += Sale();
-                quant += getQuantity();
+                quantity += getQuantity();
                 input.nextLine();
-                price += Price(quant);
+                price += Price(quantity);
 
 
                 System.out.println("Do you want to enter another item (y/n)?");
@@ -52,10 +53,11 @@ public class myStore {
                 }
                 onlyMenu();
                 int option2 = getOption();
-                showMenu(option2, sales, price, quant);
+                showMenu(option2, sales, price, quantity);
+                break;
 
             } else if (option == 2) {
-                printReceipt(getName().toUpperCase(), sales, quant, price);
+                printReceipt(getName().toUpperCase(), sales, quantity, price);
                 System.out.println("\n");
                 getdateTime();
                 onlyMenu();
@@ -71,10 +73,10 @@ public class myStore {
 
     public static String Sale() {
         Scanner input = new Scanner(System.in);
-        String item = "";
+        String item;
 
         System.out.println("What Item do you want?");
-        item += input.nextLine();
+        item = input.nextLine();
         return item;
     }
 
@@ -83,7 +85,7 @@ public class myStore {
         float price = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("Please Enter the Price");
-        price += input.nextFloat();
+        price = input.nextFloat();
         float prices = price * quantity;
 
         return prices;
@@ -94,6 +96,7 @@ public class myStore {
         int itemQuantity = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("How many would you like today?");
+        itemQuantity = input.nextInt();
 
         return itemQuantity;
     }
@@ -105,7 +108,7 @@ public class myStore {
     }
 
     public static void printReceipt (String name, String sale, int quantity, float price) {
-        System.out.printf("Name: %s \nSale: %s\nQuantity: %d\nPrice: $%.2f", name, sale, quantity, price);
+        System.out.printf("Name: %s \nSale: %s(%d), \nPrice: $%.2f", name, sale, quantity, price);
 
     }
 
