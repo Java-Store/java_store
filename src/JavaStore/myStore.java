@@ -12,10 +12,17 @@ import java.text.*;
  */
 public class myStore {
     public static void main(String[] args) {
+        String sales = "";
+        float price = 0;
+        int quant = 0;
+
         onlyMenu();
+        int option = getOption();
+        showMenu(option, sales, price, quant);
 
 
     }
+
 
     public static void onlyMenu() {
         System.out.println("======= Store Menu ======");
@@ -23,42 +30,32 @@ public class myStore {
         System.out.println("2) Print Receipt\n");
         System.out.println("3) Exit\n");
 
-        Scanner input = new Scanner(System.in);
-        int selection = input.nextInt();
-        showMenu(selection);
     }
 
 
-    public static int showMenu(Integer option) {
-        String sales = "";
-        String answer;
-        float price = 0;
-        int quant = 0;
-
+    public static void showMenu(Integer option, String sales, Float price, Integer quant ) {
         Scanner input = new Scanner(System.in);
 
-        /*System.out.println("======= Store Menu ======");
-        System.out.println("1) Sale\n");
-        System.out.println("2) Print Receipt\n");
-        System.out.println("3) Exit\n");*/
 
         do {
             if (option == 1) {
-
-                sales += Sale() + ", ";
+                sales += Sale();
                 quant += getQuantity();
+                input.nextLine();
                 price += Price(quant);
 
 
                 System.out.println("Do you want to enter another item (y/n)?");
-                answer = input.next();
+                String answer = input.nextLine();
                 if (answer.equalsIgnoreCase("y")) {
-                    continue;
+                   continue;
                 }
                 onlyMenu();
+                int option2 = getOption();
+                showMenu(option2, sales, price, quant);
 
             } else if (option == 2) {
-                printReceipt(getName(), displayData(sales), displayData(quant), displayData(price));
+                printReceipt(getName().toUpperCase(), sales, quant, price);
                 System.out.println("\n");
                 getdateTime();
                 onlyMenu();
@@ -68,7 +65,7 @@ public class myStore {
                 exitMenu();
             }
         } while (option != 3 );
-        return option;
+
     }
 
 
@@ -92,12 +89,12 @@ public class myStore {
         return prices;
     }
 
+
     public static int getQuantity() {
         int itemQuantity = 0;
         Scanner input = new Scanner(System.in);
         System.out.println("How many would you like today?");
-        itemQuantity += input.nextInt();
-//        showMenu();
+
         return itemQuantity;
     }
 
@@ -131,19 +128,11 @@ public class myStore {
 
     }
 
-
-    /* ====== Overloaded Functions ====== */
-
-    public static String displayData(String sales) {
-        return sales;
-    }
-
-    public static Integer displayData(Integer quantity) {
-        return quantity;
-    }
-
-    public static Float displayData(Float price) {
-        return price;
+    public static int getOption () {
+        Scanner input = new Scanner(System.in);
+        int option = input.nextInt();
+        input.nextLine();
+        return option;
     }
 
 
